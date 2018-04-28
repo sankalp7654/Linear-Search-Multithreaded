@@ -6,13 +6,13 @@ public class LinearSearch implements Runnable {
 	private int startIndex, endIndex;
 	private static int nElements, key, myArray [];
 	private boolean flag;
-	private String thName;
+	private String threadName;
 	public static Scanner scanner = new Scanner(System.in);
 	
-	public LinearSearch(int startIndex, int endIndex, String thName) {
+	public LinearSearch(int startIndex, int endIndex, String threadName) {
 		this.startIndex = startIndex;
 		this.endIndex = endIndex;
-		this.thName = thName;
+		this.threadName = threadName;
 		Thread thread = new Thread(this);
 		thread.start();
 	}
@@ -41,13 +41,13 @@ public class LinearSearch implements Runnable {
 	public void run() {
 		for(int i = startIndex; i<=endIndex; i++) {
 			if(key == myArray[i]) {
-				System.out.println("Search is successful by " + thName);
+				System.out.println("Search is successful by " + threadName);
 				flag = true;
 				return;
 			}
 		}
 		if(flag == false) {
-			System.out.println("Search is unsuccessful by " + thName);
+			System.out.println("Search is unsuccessful by " + threadName);
 		}
 	}
 	
